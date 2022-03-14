@@ -5,7 +5,7 @@ letters_dict = {' ': '/', 'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': 
                 '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----'}
 
 
-# translated input letters to morse code
+# translates user input letters to morse code
 def letters_to_morse():
     user_words = input('Type words to be translated to morse: ').lower()
     translated_word = []
@@ -21,18 +21,18 @@ def letters_to_morse():
         print('Invalid characters. Valid characters include a-z, and 0-9.')
 
 
-# translated user input morse to letters
+# translates user input morse code to letters
 def morse_to_letters():
     user_morse = input('Type the morse code using "." and "-" symbols: ').lower()
     user_morse_list = user_morse.split()
     translated_morse = []
     valid_morse = True
-    # inverts dictionary key value pairs, keys are now morse, values are letters
+    # inverts dictionary key value pairs, keys will be now morse code, values will be letters
     morse_dict = {morse: letter for letter, morse in letters_dict.items()}
     for character in user_morse_list:
         if character in morse_dict:
             translated_morse.append(morse_dict[character])
-        #     morse code can have '/' to space out words
+        # morse code may have '/' for readability, this will skip those cases
         elif character == '/':
             pass
         else:
@@ -42,7 +42,7 @@ def morse_to_letters():
     else:
         print('Invalid morse characters.')
 
-
+# main loop, continues until user declines to continue
 user_response = True
 while user_response:
     valid_response = True
