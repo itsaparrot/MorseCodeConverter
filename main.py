@@ -42,20 +42,18 @@ def morse_to_letters():
     else:
         print('Invalid morse characters.')
 
-# main loop, continues until user declines to continue
+
+# main loop, continues until user exits
 user_response = True
 while user_response:
     valid_response = True
     while valid_response:
-        answer = input('Type "text" if you want to translate text to morse, or type "morse" if you want to translate '
-                       'morse to text: ').lower()
+        answer = input('Type "text" if you want to translate text to morse, type "morse" if you want to translate '
+                       'morse to text, or type "exit" to stop: ').lower()
         if answer == 'text':
             letters_to_morse()
         elif answer == 'morse':
             morse_to_letters()
+        elif answer == 'exit':
+            user_response = False
         valid_response = False
-
-    continue_question = input('Would you like to keep translating? "y" or "n" ')
-    if continue_question == 'n':
-        user_response = False
-
