@@ -38,7 +38,7 @@ def morse_to_letters():
         else:
             valid_morse = False
     if valid_morse:
-        print(' '.join(translated_morse))
+        print(''.join(translated_morse))
     else:
         print('Invalid morse characters.')
 
